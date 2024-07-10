@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SearchInput from '../components/SearchInput.tsx';
 import SliderGroup from '../components/SliderGroup.tsx';
+import '../styles/SearchPage.css';
 
 const SearchPage = () => {
   const [keyword, setKeyword] = useState('');
@@ -9,7 +10,7 @@ const SearchPage = () => {
     <div>
       <SearchInput keyword={keyword} setKeyword={setKeyword} />
       <SliderGroup />
-      <div>4</div>
+      <button className="search-button">Search</button>
     </div>
   );
 };
