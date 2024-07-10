@@ -1,0 +1,25 @@
+.keyword-input {
+  width: 725px;
+  height: 60px;
+  border-radius: 6px;
+  border: 3px solid #ffffff80;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.25px;
+  opacity: 0px;
+  outline: none;
+  background-color: #181818;
+  color: #ffffff;
+  padding-left: 15px;
+}
+
+.keyword-input:focus {
+  border: 3px solid #ff9b33;
+}
+
+.keyword-input::placeholder {
+  color: #ffffff;
+  opacity: 30%;
+}

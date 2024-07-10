@@ -1,4 +1,5 @@
 import NavBar from '../components/NavBar.tsx';
+import KeywordInputGroup from '../components/KeywordInputGroup.tsx';
 import SliderBar from '../components/SliderBar.tsx';
 
 function Home() {
@@ -8,7 +9,7 @@ function Home() {
         <NavBar />
         <div className="flex flex-1 justify-center">
           <div>
-            <div>2</div>
+            <KeywordInputGroup />
             <SliderBar />
             <div>4</div>
           </div>
