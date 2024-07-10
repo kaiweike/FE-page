@@ -1,6 +1,6 @@
 import NavBar from '../components/NavBar.tsx';
 import SearchPage from './SearchPage.tsx';
-import Follow from '../components/Follow.tsx';
+import Profile from '../components/Profile.tsx';
 
 function Home() {
   return (
@@ -13,7 +13,7 @@ function Home() {
           </div>
         </div>
         <div className="w-375 bg-bg-second hidden h-screen 2xl:block">
-          <Follow />
+          <Profile />
         </div>
       </div>
     </>

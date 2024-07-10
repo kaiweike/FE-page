@@ -1,22 +1,22 @@
-import '../styles/Follow.css';
+import '../styles/Profile.css';
 import { useState } from 'react';
 import Followers from './Followers';
 import Following from './Following';
 
-function Follow() {
+function Profile() {
   const [activeButton, setActiveButton] = useState('followers');
 
   return (
     <>
-      <div className="follow-switch flex">
+      <div className="profile-switch flex">
         <button
-          className={`followers-tab ${activeButton === 'followers' ? 'active' : ''}`}
+          className={`profile-followers ${activeButton === 'followers' ? 'active' : ''}`}
           onClick={() => setActiveButton('followers')}
         >
           Followers
         </button>
         <button
-          className={`following-tab ${activeButton === 'following' ? 'active' : ''}`}
+          className={`profile-following ${activeButton === 'following' ? 'active' : ''}`}
           onClick={() => setActiveButton('following')}
         >
           Following
@@ -29,4 +29,4 @@ function Follow() {
   );
 }
 
-export default Follow;
+export default Profile;

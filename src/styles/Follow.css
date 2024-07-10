@@ -1,32 +1,91 @@
-.follow-switch {
-  margin-top: 32px;
-  margin-bottom: 24px;
+.avatar {
+  margin-top: 3px;
+  margin-right: 15px;
+  margin-bottom: 2px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #f8f8f8;
+  border-radius: 5px;
 }
 
-.followers-tab,
-.following-tab {
-  width: 187px;
-  height: 33px;
-  color: #929292;
+.fullname-username {
+  height: 45px;
+}
+
+.fullname {
+  height: 24px;
   font-family: Ubuntu;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.15px;
-  text-align: center;
-  border-bottom: 2px solid #1f1f1f;
-  cursor: pointer;
-  opacity: 0.87px;
-}
-
-.following-tab {
-  width: 188px;
-}
-
-.followers-tab.active,
-.following-tab.active {
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
   color: #ffffff;
-  font-weight: 700;
-  opacity: 1px;
-  border-bottom: 2px solid #ffffff;
+}
+
+.username {
+  height: 21px;
+  opacity: 0.5px;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.25px;
+  text-align: left;
+  color: #ffffff;
+  opacity: 50%;
+}
+
+.follow-button {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  width: 60px;
+  height: 29px;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  background-color: #121212;
+  padding: 8px 10px 8px 10px;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.follow-button:hover {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  color: #121212;
+  transition:
+    background-color 0.3s,
+    width 0.3s,
+    border-color 0.3s;
+}
+
+.following-button {
+  margin-top: 8px;
+  margin-bottom: 9px;
+  width: 76px;
+  height: 28px;
+  padding: 8px 10px 8px 10px;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  text-align: center;
+  color: #121212;
+}
+
+.following-button:hover {
+  background-color: #121212;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  transition:
+    background-color 0.3s,
+    width 0.3s,
+    border-color 0.3s;
 }

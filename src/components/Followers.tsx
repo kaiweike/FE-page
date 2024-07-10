@@ -1,4 +1,4 @@
-import '../styles/Followers.css';
+import '../styles/Follow.css';
 
 const followers = [
   { id: 1, name: 'John Doe' },

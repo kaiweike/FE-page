@@ -1,0 +1,32 @@
+.profile-switch {
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.profile-followers,
+.profile-following {
+  width: 187px;
+  height: 33px;
+  color: #929292;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  text-align: center;
+  border-bottom: 2px solid #1f1f1f;
+  cursor: pointer;
+  opacity: 0.87px;
+}
+
+.profile-following {
+  width: 188px;
+}
+
+.profile-followers.active,
+.profile-following.active {
+  color: #ffffff;
+  font-weight: 700;
+  opacity: 1px;
+  border-bottom: 2px solid #ffffff;
+}
