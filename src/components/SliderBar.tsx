@@ -3,7 +3,7 @@ import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 
-const CustomSlider = styled(Slider)(({ theme }) => ({
+const CustomSlider = styled(Slider)(() => ({
   '& .MuiSlider-thumb': {
     height: 20,
     width: 20,
@@ -24,17 +24,17 @@ const CustomSlider = styled(Slider)(({ theme }) => ({
   },
   '& .MuiSlider-rail': {
     opacity: 0.3,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFFFFF',
     height: 8,
     borderRadius: 4
   },
   '& .MuiSlider-mark': {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFFFFF',
     height: 0,
     width: 0,
     '&.MuiSlider-markActive': {
       opacity: 0,
-      backgroundColor: 'currentColor'
+      backgroundColor: 'FFFFFF'
     }
   },
   '& .MuiSlider-markLabel': {
@@ -44,7 +44,7 @@ const CustomSlider = styled(Slider)(({ theme }) => ({
     fontWeight: 500,
     lineHeight: '24px',
     letterSpacing: '0.150px',
-    color: '#fff',
+    color: '#FFFFFF',
     padding: '2px 8px',
     opacity: 0.5
   }
@@ -72,15 +72,22 @@ function DiscreteSliderValues() {
 
   return (
     <>
-      <Box sx={{ width: 725 }}>
+      <Box
+        sx={{
+          width: {
+            xs: 335,
+            md: 725
+          }
+        }}
+      >
         <CustomSlider
           aria-label="Customized slider"
           defaultValue={15}
           getAriaValueText={valuetext}
           step={null}
           marks={marks}
-          min={3}
-          max={18}
+          min={2.8}
+          max={18.3}
           value={value}
           onChange={(_, newValue) => setValue(newValue)}
           sx={{

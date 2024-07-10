@@ -6,12 +6,14 @@ function Home() {
     <>
       <div className="flex justify-between">
         <NavBar />
-        <div>
-          <div className="">2</div>
-          <SliderBar />
-          <div className="">4</div>
+        <div className="flex flex-1 justify-center">
+          <div>
+            <div>2</div>
+            <SliderBar />
+            <div>4</div>
+          </div>
         </div>
-        <div className="w-375 h-screen">5</div>
+        <div className="w-375 hidden h-screen 2xl:block">5</div>
       </div>
     </>
   );
