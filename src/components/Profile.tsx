@@ -1,10 +1,35 @@
 import '../styles/Profile.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Followers from './Followers';
 import Following from './Following';
 
 function Profile() {
   const [activeButton, setActiveButton] = useState('followers');
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchFollowers = async () => {
+      const response = await fetch(
+        'https://avl-frontend-exam.herokuapp.com/api/users/all?page=1&pageSize=100'
+      );
+      const data = await response.json();
+      setData(data);
+    };
+
+    const fetchFollowing = async () => {
+      const response = await fetch(
+        'https://avl-frontend-exam.herokuapp.com/api/users/friends?page=1&pageSize=43'
+      );
+      const data = await response.json();
+      setData(data);
+    };
+
+    if (activeButton === 'followers') {
+      fetchFollowers();
+    } else if (activeButton === 'following') {
+      fetchFollowing();
+    }
+  }, [activeButton]);
 
   return (
     <>
@@ -22,9 +47,10 @@ function Profile() {
           Following
         </button>
       </div>
-
-      {activeButton === 'followers' && <Followers />}
-      {activeButton === 'following' && <Following />}
+      <div className="h-92 overflow-y-scroll overscroll-y-contain pt-6">
+        {activeButton === 'followers' && <Followers followers={data.data} />}
+        {activeButton === 'following' && <Following followers={data.data} />}
+      </div>
     </>
   );
 }
