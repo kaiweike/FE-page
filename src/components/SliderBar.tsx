@@ -87,7 +87,7 @@ function DiscreteSliderValues() {
           step={null}
           marks={marks}
           min={2.8}
-          max={18.3}
+          max={18.2}
           value={value}
           onChange={(_, newValue) => setValue(newValue)}
           sx={{

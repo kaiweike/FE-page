@@ -1,6 +1,5 @@
 import NavBar from '../components/NavBar.tsx';
-import KeywordInputGroup from '../components/KeywordInputGroup.tsx';
-import SliderBar from '../components/SliderBar.tsx';
+import SearchPage from './SearchPage.tsx';
 
 function Home() {
   return (
@@ -9,9 +8,7 @@ function Home() {
         <NavBar />
         <div className="flex flex-1 justify-center">
           <div>
-            <KeywordInputGroup />
-            <SliderBar />
-            <div>4</div>
+            <SearchPage />
           </div>
         </div>
         <div className="w-375 hidden h-screen 2xl:block">5</div>
