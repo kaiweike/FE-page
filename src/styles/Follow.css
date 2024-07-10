@@ -1,9 +1,10 @@
 .follow-switch {
   margin-top: 32px;
+  margin-bottom: 24px;
 }
 
-.followers-button,
-.following-button {
+.followers-tab,
+.following-tab {
   width: 187px;
   height: 33px;
   color: #929292;
@@ -18,12 +19,12 @@
   opacity: 0.87px;
 }
 
-.following-button {
+.following-tab {
   width: 188px;
 }
 
-.followers-button.active,
-.following-button.active {
+.followers-tab.active,
+.following-tab.active {
   color: #ffffff;
   font-weight: 700;
   opacity: 1px;

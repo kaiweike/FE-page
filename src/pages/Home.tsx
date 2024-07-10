@@ -12,7 +12,7 @@ function Home() {
             <SearchPage />
           </div>
         </div>
-        <div className="w-375 hidden h-screen 2xl:block">
+        <div className="w-375 bg-bg-second hidden h-screen 2xl:block">
           <Follow />
         </div>
       </div>

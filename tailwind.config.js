@@ -11,6 +11,9 @@ export default {
       },
       fontFamily: {
         ubuntu: ['Ubuntu']
+      },
+      colors: {
+        'bg-second': '#1B1B1B'
       }
     }
   },
