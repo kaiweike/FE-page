@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 
 const CustomSlider = styled(Slider)(() => ({
+  margin: '0px',
   '& .MuiSlider-thumb': {
     height: 20,
     width: 20,
@@ -38,7 +39,7 @@ const CustomSlider = styled(Slider)(() => ({
     }
   },
   '& .MuiSlider-markLabel': {
-    top: 40,
+    top: 28,
     fontFamily: 'Ubuntu',
     fontSize: '16px',
     fontWeight: 500,
