@@ -1,0 +1,48 @@
+.keyword-input {
+  width: 335px;
+  height: 60px;
+  border-radius: 6px;
+  border: 3px solid #ffffff80;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.25px;
+  outline: none;
+  background-color: #181818;
+  color: #ffffff;
+  padding-left: 15px;
+}
+
+.keyword-input:focus {
+  border: 3px solid #ff9b33;
+}
+
+.keyword-input::placeholder {
+  color: #ffffff;
+  opacity: 30%;
+}
+
+.search-label {
+  margin-top: 70px;
+  margin-bottom: 16px;
+  width: 73px;
+  height: 36px;
+  font-family: Ubuntu;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  color: #ffffff;
+}
+
+@media (min-width: 900px) {
+  .search-label {
+    margin-top: 54px;
+    margin-bottom: 20px;
+  }
+
+  .keyword-input {
+    width: 725px;
+  }
+}
