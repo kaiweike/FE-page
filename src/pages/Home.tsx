@@ -1,5 +1,6 @@
 import NavBar from '../components/NavBar.tsx';
 import SearchPage from './SearchPage.tsx';
+import Profile from '../components/Profile.tsx';
 
 function Home() {
   return (
@@ -11,7 +12,9 @@ function Home() {
             <SearchPage />
           </div>
         </div>
-        <div className="w-375 hidden h-screen 2xl:block">5</div>
+        <div className="w-375 bg-bg-second hidden h-screen 2xl:block">
+          <Profile />
+        </div>
       </div>
     </>
   );
