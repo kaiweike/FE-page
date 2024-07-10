@@ -9,7 +9,10 @@ const SearchPage = () => {
   return (
     <div>
       <SearchInput keyword={keyword} setKeyword={setKeyword} />
+      <hr className="placeholder1" />
+      <div className="placeholder2" />
       <SliderGroup />
+      <hr className="placeholder3" />
       <button className="search-button">Search</button>
     </div>
   );

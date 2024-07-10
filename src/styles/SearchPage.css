@@ -1,3 +1,24 @@
+.placeholder1 {
+  display: none;
+  margin-top: 30px;
+  margin-bottom: 2px;
+  width: 725px;
+  opacity: 10%;
+  border: 1px solid #ffffff;
+}
+
+.placeholder2 {
+  height: 28px;
+}
+
+.placeholder3 {
+  margin-top: 218px;
+  margin-bottom: 80px;
+  width: 335px;
+  opacity: 10%;
+  border: 1px solid #ffffff;
+}
+
 .search-button {
   width: 335px;
   height: 40px;
@@ -22,6 +43,16 @@
 }
 
 @media (min-width: 900px) {
+  .placeholder1 {
+    display: block;
+  }
+
+  .placeholder3 {
+    margin-top: 30px;
+    margin-bottom: 335px;
+    width: 725px;
+  }
+
   .search-button {
     width: 343px;
   }
