@@ -40,7 +40,12 @@
   width: 26px;
 }
 
+.result-image-frame {
+  margin-left: 20px;
+}
+
 .result-image {
+  margin-bottom: 20.3px;
   width: 335px;
   height: 222.67px;
 }
@@ -51,14 +56,12 @@
   left: 210px;
   gap: 0px;
   opacity: 0px;
-
   font-family: Ubuntu;
   font-size: 14.9px;
   font-weight: 400;
   line-height: 22.35px;
   letter-spacing: 0.13968750834465027px;
   text-align: left;
-
   color: #ffffff;
 }
 
@@ -74,6 +77,7 @@
 }
 
 .result-more {
+  margin-left: 20px;
   width: 343px;
   height: 40px;
   padding: 13px 16px 13px 16px;
@@ -95,6 +99,7 @@
 
 @media (min-width: 640px) {
   .result-image {
+    margin-bottom: 12px;
     width: 219px;
     height: 146px;
   }
@@ -126,6 +131,11 @@
   }
 
   .result-image-frame {
+    margin-left: 0px;
     width: 725px;
+  }
+
+  .result-more {
+    margin-left: 0px;
   }
 }
