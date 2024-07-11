@@ -12,6 +12,9 @@ export default {
       height: {
         92: '92%'
       },
+      maxHeight: {
+        700: '700px'
+      },
       fontFamily: {
         ubuntu: ['Ubuntu']
       },

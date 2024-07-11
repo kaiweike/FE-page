@@ -40,18 +40,22 @@ function Result() {
         </div>
         <div>
           <div className="result-results">Results</div>
-          <div className="result-picture grid-col-1 grid gap-x-1 gap-y-1 p-2 2xl:grid-cols-3">
-            <div>picture</div>
-            <div>picture</div>
-            <div>picture</div>
-            <div>picture</div>
-            <div>picture</div>
-            <div>picture</div>
-            <div>picture</div>
-            <div>picture</div>
-            <div>picture</div>
+          <div className="max-h-700 overflow-y-scroll">
+            <div className="result-image-frame grid-col-1 grid gap-x-1 gap-y-1 p-2 sm:grid-cols-3">
+              {data.data.map((image, index) => (
+                <div key={image.id}>
+                  <img
+                    src={`src/assets/result${(index % 3) + 1}.png`}
+                    alt="result"
+                    className="result-image"
+                  />
+                  <div className="result-title">This is a title</div>
+                  <div className="result-username">by {image.username}</div>
+                </div>
+              ))}
+            </div>
+            <button className="result-more">MORE</button>
           </div>
-          <button className="result-more">MORE</button>
         </div>
         <div className="result-spaceholder hidden 2xl:block" />
       </div>
