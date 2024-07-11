@@ -9,6 +9,9 @@ export default {
       width: {
         375: '375px'
       },
+      height: {
+        92: '92%'
+      },
       fontFamily: {
         ubuntu: ['Ubuntu']
       },

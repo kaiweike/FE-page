@@ -67,9 +67,19 @@ const marks = [
   { value: 18, label: '50' }
 ];
 
-function DiscreteSliderValues() {
+function DiscreteSliderValues({ setPageSize }) {
   const [value, setValue] = useState(15); // default value
   const selectedMarkIndex = marks.findIndex((mark) => mark.value === value);
+
+  const handleChange = (_, newValue) => {
+    setValue(newValue); // slider value
+
+    // Convert slider value to expected value
+    if (newValue === 18) {
+      newValue = 50;
+    }
+    setPageSize(newValue);
+  };
 
   return (
     <>
@@ -90,7 +100,9 @@ function DiscreteSliderValues() {
           min={2.8}
           max={18.2}
           value={value}
-          onChange={(_, newValue) => setValue(newValue)}
+          // valueLabelFormat={valuetext}
+          // valueLabelDisplay="auto"
+          onChange={handleChange}
           sx={{
             [`& .MuiSlider-markLabel[data-index="${selectedMarkIndex}"]`]: {
               opacity: 1

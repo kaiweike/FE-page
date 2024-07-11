@@ -1,21 +1,23 @@
 import '../styles/Follow.css';
 
-const followers = [
-  { id: 1, name: 'John Doe' },
-  { id: 2, name: 'Jane Doe' },
-  { id: 3, name: 'Foo Bar' }
-];
-
-function Following() {
+function Following({ followers }) {
+  if (!Array.isArray(followers)) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       {followers.map((follower) => (
         <div className="flex justify-between px-4 py-2" key={follower.id}>
           <div className="flex">
-            <div className="avatar">{follower.name}</div>
+            <div className="avatar">
+              <img
+                src="src/assets/avatar2.png"
+                alt={`${follower.name}'s avatar`}
+              />
+            </div>
             <div className="fullname-username">
-              <div className="fullname">Fullname</div>
-              <div className="username">@username</div>
+              <div className="fullname">{follower.name}</div>
+              <div className="username">{follower.name}</div>
             </div>
           </div>
           <button className="following-button">Following</button>
