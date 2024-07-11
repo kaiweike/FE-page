@@ -1,0 +1,91 @@
+.result-navbar {
+  width: 375px;
+  height: 70px;
+}
+
+.result-back-arrow {
+  margin-top: 23px;
+  margin-left: 19px;
+  width: 26px;
+  height: 26px;
+}
+
+.result-homepage {
+  margin-top: 17px;
+  margin-left: 13.16px;
+  height: 36px;
+  font-family: Ubuntu;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.result-results {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 4px;
+  width: 80px;
+  height: 36px;
+  font-family: Ubuntu;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.result-spaceholder {
+  width: 26px;
+}
+
+.result-more {
+  width: 343px;
+  height: 40px;
+  padding: 13px 16px 13px 16px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  color: #121212;
+}
+
+.result-more:hover {
+  background-color: #121212;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+@media (min-width: 1440px) {
+  .result-navbar {
+    width: 26px;
+    height: 128px;
+  }
+
+  .result-back-arrow {
+    margin-top: 102px;
+    margin-left: 0px;
+  }
+
+  .result-results {
+    margin-top: 92px;
+    margin-left: 25px;
+    width: 102px;
+    height: 45px;
+    font-family: Ubuntu;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 45px;
+    letter-spacing: 0.25px;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  .result-picture {
+    width: 725px;
+  }
+}
