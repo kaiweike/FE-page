@@ -17,7 +17,12 @@ function Home() {
   return (
     <>
       <div className="flex justify-between">
-        <NavBar />
+        {location.pathname === '/' && <NavBar />}
+        {location.pathname === '/result' && (
+          <div className="hidden 2xl:block">
+            <NavBar />
+          </div>
+        )}
         <div className="flex flex-1 justify-center">
           <div>
             {location.pathname === '/' && (
