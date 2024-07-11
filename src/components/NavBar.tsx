@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/NavBar.css';
 
 function NavBar() {
@@ -8,15 +9,15 @@ function NavBar() {
           LOGO
         </div>
 
-        <div>
+        <Link to="/" className="home-link">
           <img src="src/assets/home.svg" alt="home" className="nav-home-svg" />
           <div className="nav-home hidden md:block">Home</div>
-        </div>
+        </Link>
 
-        <div>
+        <Link to="/tags" className="tags-link">
           <img src="src/assets/tags.svg" alt="tags" className="nav-tags-svg" />
           <div className="nav-status-dot hidden md:block"></div>
-        </div>
+        </Link>
       </div>
     </>
   );
