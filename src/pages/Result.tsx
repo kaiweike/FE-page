@@ -42,7 +42,7 @@ function Result() {
         <div>
           <div className="result-results">Results</div>
           <div className="max-h-[40rem] overflow-y-scroll">
-            <ResultGrid images={data} />
+            <ResultGrid initialImages={data} />
           </div>
         </div>
         <div className="result-spaceholder hidden 2xl:block" />
