@@ -47,7 +47,7 @@ function Profile() {
           Following
         </button>
       </div>
-      <div className="h-92 overflow-y-scroll overscroll-y-contain pt-6">
+      <div className="h-[92%] overflow-y-scroll overscroll-y-contain pt-6">
         {activeButton === 'followers' && <Followers followers={data.data} />}
         {activeButton === 'following' && <Following followers={data.data} />}
       </div>

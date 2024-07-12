@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../styles/Result.css';
+import ResultGrid from '../components/ResultGrid';
 
 function Result() {
   const [data, setData] = useState(null);
@@ -24,10 +27,27 @@ function Result() {
   }
 
   return (
-    <div>
-      <h1>Result Page</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    <>
+      <div className="2xl:flex">
+        <div className="result-navbar flex">
+          <Link to="/">
+            <img
+              src="src/assets/arrow.svg"
+              alt="Back Home"
+              className="result-back-arrow"
+            />
+          </Link>
+          <div className="result-homepage 2xl:hidden">Home Page</div>
+        </div>
+        <div>
+          <div className="result-results">Results</div>
+          <div className="max-h-[40rem] overflow-y-scroll">
+            <ResultGrid initialImages={data} />
+          </div>
+        </div>
+        <div className="result-spaceholder hidden 2xl:block" />
+      </div>
+    </>
   );
 }
 

@@ -6,17 +6,8 @@ export default {
       screens: {
         '2xl': '1440px'
       },
-      width: {
-        375: '375px'
-      },
-      height: {
-        92: '92%'
-      },
       fontFamily: {
         ubuntu: ['Ubuntu']
-      },
-      colors: {
-        'bg-second': '#1B1B1B'
       }
     }
   },

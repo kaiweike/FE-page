@@ -31,7 +31,7 @@ function Home() {
             {location.pathname === '/result' && <Result />}
           </div>
         </div>
-        <div className="w-375 bg-bg-second hidden h-screen 2xl:block">
+        <div className="hidden h-screen w-[375px] bg-[#1B1B1B] 2xl:block">
           <Profile />
         </div>
       </div>

@@ -1,0 +1,141 @@
+.result-navbar {
+  width: 375px;
+  height: 70px;
+}
+
+.result-back-arrow {
+  margin-top: 23px;
+  margin-left: 19px;
+  width: 26px;
+  height: 26px;
+}
+
+.result-homepage {
+  margin-top: 17px;
+  margin-left: 13.16px;
+  height: 36px;
+  font-family: Ubuntu;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.result-results {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 24px;
+  width: 80px;
+  height: 36px;
+  font-family: Ubuntu;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.result-spaceholder {
+  width: 26px;
+}
+
+.result-image-frame {
+  margin-left: 20px;
+}
+
+.result-image {
+  margin-bottom: 20.3px;
+  width: 335px;
+  height: 222.67px;
+}
+
+.result-title {
+  height: 22px;
+  top: 319px;
+  left: 210px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Ubuntu;
+  font-size: 14.9px;
+  font-weight: 400;
+  line-height: 22.35px;
+  letter-spacing: 0.13968750834465027px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.result-username {
+  height: 17px;
+  font-family: Ubuntu;
+  font-size: 11.17px;
+  font-weight: 400;
+  line-height: 16.76px;
+  letter-spacing: 0.3725000023841858px;
+  text-align: left;
+  color: #b2b2b2;
+}
+
+.result-more {
+  margin-left: 20px;
+  width: 343px;
+  height: 40px;
+  padding: 13px 16px 13px 16px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  color: #121212;
+}
+
+.result-more:hover {
+  background-color: #121212;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+@media (min-width: 640px) {
+  .result-image {
+    margin-bottom: 12px;
+    width: 219px;
+    height: 146px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .result-navbar {
+    width: 26px;
+    height: 128px;
+  }
+
+  .result-back-arrow {
+    margin-top: 102px;
+    margin-left: 0px;
+  }
+
+  .result-results {
+    margin-top: 92px;
+    margin-left: 25px;
+    width: 102px;
+    height: 45px;
+    font-family: Ubuntu;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 45px;
+    letter-spacing: 0.25px;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  .result-image-frame {
+    margin-left: 0px;
+    width: 725px;
+  }
+
+  .result-more {
+    margin-left: 0px;
+  }
+}
