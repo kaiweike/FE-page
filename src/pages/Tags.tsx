@@ -20,11 +20,11 @@ function Tags() {
 
   return (
     <>
-      <div className="flex justify-between">
-        <div className="hidden md:block">
+      <div className="flex">
+        <div className="fixed hidden md:block">
           <NavBar />
         </div>
-        <div className="flex flex-1 justify-center">
+        <div className="flex flex-1 justify-center md:ml-[80px]">
           <div className="">
             <div className="flex h-[70px] w-[375px] md:hidden">
               <Link to="/">
