@@ -6,7 +6,7 @@ import ResultGrid from '../components/ResultGrid';
 
 function Result() {
   const [data, setData] = useState(null);
-  const query = new URLSearchParams(useLocation().search); // get URL query string
+  const query = new URLSearchParams(useLocation().search); // get URL's query string
 
   useEffect(() => {
     const fetchData = async () => {
