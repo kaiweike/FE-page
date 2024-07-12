@@ -40,8 +40,8 @@ function Result() {
         </div>
         <div>
           <div className="result-results">Results</div>
-          <div className="max-h-[700px] overflow-y-scroll">
-            <div className="result-image-frame grid-col-1 grid gap-y-[20px] pb-[8px] pt-[20px] sm:grid-cols-3 sm:gap-x-[34px] sm:gap-y-[31px]">
+          <div className="max-h-[40rem] overflow-y-scroll">
+            <div className="result-image-frame grid-col-1 grid gap-y-[20px] pb-[20px] sm:grid-cols-3 sm:gap-x-[34px] sm:gap-y-[31px]">
               {data.data.map((image, index) => (
                 <div key={image.id}>
                   <img
