@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../styles/Result.css';
+import ResultGrid from '../components/ResultGrid';
 
 function Result() {
   const [data, setData] = useState(null);
@@ -41,20 +42,7 @@ function Result() {
         <div>
           <div className="result-results">Results</div>
           <div className="max-h-[40rem] overflow-y-scroll">
-            <div className="result-image-frame grid-col-1 grid gap-y-[20px] pb-[20px] sm:grid-cols-3 sm:gap-x-[34px] sm:gap-y-[31px]">
-              {data.data.map((image, index) => (
-                <div key={image.id}>
-                  <img
-                    src={`src/assets/result${(index % 3) + 1}.png`}
-                    alt="result"
-                    className="result-image"
-                  />
-                  <div className="result-title">This is a title</div>
-                  <div className="result-username">by {image.username}</div>
-                </div>
-              ))}
-            </div>
-            <button className="result-more">MORE</button>
+            <ResultGrid images={data} />
           </div>
         </div>
         <div className="result-spaceholder hidden 2xl:block" />
