@@ -14,6 +14,10 @@ function Tags() {
       .catch((error) => console.error('Error fetching tags:', error));
   }, []);
 
+  if (tags.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <div className="flex justify-between">
@@ -33,7 +37,7 @@ function Tags() {
               <div className="tags-homepage">Home Page</div>
             </div>
             <div className="tags-title">Tags</div>
-            <TagsGrid />
+            <TagsGrid tags={tags} />
           </div>
         </div>
       </div>

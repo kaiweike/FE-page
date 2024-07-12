@@ -1,14 +1,15 @@
-function TagsGrid() {
+function TagsGrid({ tags }) {
   return (
     <>
       <div className="tags-frame grid grid-cols-2 gap-[24px] sm:grid-cols-3 md:grid-cols-4 md:gap-y-[36px] lg:grid-cols-5">
-        <div className="tags-card border">
-          <div className="tags-image border">
-            <div className="tags-tag border"></div>
+        {tags.map((tag, index) => (
+          <div className="tags-card relative" key={tag.id}>
+            <div className="tags-image absolute rounded-lg"></div>
+            <div className="tags-tag absolute truncate">{tag.name}</div>
+            <div className="tags-name absolute truncate">{tag.name}</div>
+            <div className="tags-count absolute">{tag.count} Questions</div>
           </div>
-          <div className="tags-name border"></div>
-          <div className="tags-count border"></div>
-        </div>
+        ))}
       </div>
     </>
   );
