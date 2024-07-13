@@ -2,6 +2,33 @@ import { useState, useEffect } from 'react';
 import Refresh from '@mui/icons-material/Refresh';
 
 function ResultGrid({ initialImages }) {
+  if (!initialImages) {
+    return (
+      <>
+        <div className="result-image-frame grid-col-1 grid animate-pulse gap-y-[20px] pb-[20px] sm:grid-cols-3 sm:gap-x-[34px] sm:gap-y-[31px]">
+          <div>
+            <div className="result-image rounded-lg bg-slate-500" />
+            <div className="result-title">
+              <div className="h-2 w-32 rounded bg-slate-500" />
+            </div>
+            <div className="result-username">
+              <div className="h-2 w-24 rounded bg-slate-500" />
+            </div>
+          </div>
+          <div>
+            <div className="result-image rounded-lg bg-slate-600" />
+            <div className="result-title">
+              <div className="h-2 w-32 rounded bg-slate-600" />
+            </div>
+            <div className="result-username">
+              <div className="h-2 w-24 rounded bg-slate-600" />
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   const [images, setImages] = useState(initialImages.data);
   const [totalPages, setTotalPages] = useState(initialImages.totalPages);
   const [page, setPage] = useState(initialImages.page);
