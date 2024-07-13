@@ -6,12 +6,39 @@ import '../styles/Tags.css';
 
 function Tags() {
   const [tags, setTags] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch('https://avl-frontend-exam.herokuapp.com/api/tags')
-      .then((response) => response.json())
-      .then((data) => setTags(data))
-      .catch((error) => console.error('Error fetching tags:', error));
+    async function fetchTags() {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          'https://avl-frontend-exam.herokuapp.com/api/tags'
+        );
+        const newTags = await response.json();
+        setTags((prevTags) => [...prevTags, ...newTags]);
+      } catch (error) {
+        console.error('Error fetching tags:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchTags();
+
+    function handleScroll() {
+      if (
+        window.innerHeight + document.documentElement.scrollTop !==
+          document.documentElement.offsetHeight ||
+        loading
+      )
+        return;
+      fetchTags();
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   if (tags.length === 0) {
@@ -24,7 +51,7 @@ function Tags() {
         <div className="fixed hidden md:block">
           <NavBar />
         </div>
-        <div className="flex flex-1 justify-center md:ml-[80px]">
+        <div className="mb-40 flex flex-1 justify-center md:ml-[80px]">
           <div className="">
             <div className="flex h-[70px] w-[375px] md:hidden">
               <Link to="/">
