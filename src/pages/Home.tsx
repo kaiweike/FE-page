@@ -16,22 +16,28 @@ function Home() {
 
   return (
     <>
-      <div className="flex justify-between">
-        {location.pathname === '/' && <NavBar />}
-        {location.pathname === '/result' && (
-          <div className="hidden 2xl:block">
-            <NavBar />
-          </div>
-        )}
-        <div className="flex flex-1 justify-center">
-          <div>
-            {location.pathname === '/' && (
-              <SearchPage onSearch={handleSearch} />
-            )}
-            {location.pathname === '/result' && <Result />}
-          </div>
+      <div
+        className={`md:grid ${
+          location.pathname === '/'
+            ? 'md:grid-cols-home-layout-md 2xl:grid-cols-home-layout-2xl'
+            : 'md:grid-cols-result-layout-md 2xl:grid-cols-home-layout-2xl'
+        }`}
+      >
+        <div>
+          {location.pathname === '/' && <NavBar />}
+          {location.pathname === '/result' && (
+            <div className="fixed hidden 2xl:block">
+              <NavBar />
+            </div>
+          )}
         </div>
-        <div className="hidden h-screen w-[375px] bg-[#1B1B1B] 2xl:block">
+
+        <div className="flex justify-center">
+          {location.pathname === '/' && <SearchPage onSearch={handleSearch} />}
+          {location.pathname === '/result' && <Result />}
+        </div>
+
+        <div className="fixed right-0 hidden h-screen w-[375px] bg-[#1B1B1B] 2xl:block">
           <Profile />
         </div>
       </div>

@@ -8,6 +8,11 @@ export default {
       },
       fontFamily: {
         ubuntu: ['Ubuntu']
+      },
+      gridTemplateColumns: {
+        'result-layout-md': '1fr',
+        'home-layout-md': '80px 1fr',
+        'home-layout-2xl': '80px 1fr 375px'
       }
     }
   },

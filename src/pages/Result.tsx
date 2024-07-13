@@ -6,7 +6,7 @@ import ResultGrid from '../components/ResultGrid';
 
 function Result() {
   const [data, setData] = useState(null);
-  const query = new URLSearchParams(useLocation().search); // get URL query string
+  const query = new URLSearchParams(useLocation().search); // get URL's query string
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,9 +41,7 @@ function Result() {
         </div>
         <div>
           <div className="result-results">Results</div>
-          <div className="max-h-[40rem] overflow-y-scroll">
-            <ResultGrid initialImages={data} />
-          </div>
+          <ResultGrid initialImages={data} />
         </div>
         <div className="result-spaceholder hidden 2xl:block" />
       </div>

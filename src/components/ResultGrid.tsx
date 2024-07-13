@@ -48,14 +48,14 @@ function ResultGrid({ initialImages }) {
       </div>
       {page < totalPages ? (
         <button
-          className="result-more"
+          className="result-more mb-40"
           onClick={fetchMoreImages}
           disabled={loading}
         >
           {loading ? 'Loading...' : 'MORE'}
         </button>
       ) : (
-        <button className="result-more" disabled>
+        <button className="result-more mb-40" disabled>
           No more images
         </button>
       )}
