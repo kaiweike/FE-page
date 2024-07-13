@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Refresh from '@mui/icons-material/Refresh';
 
 function ResultGrid({ initialImages }) {
   const [images, setImages] = useState(initialImages.data);
@@ -31,6 +32,15 @@ function ResultGrid({ initialImages }) {
     }
   };
 
+  function LoadingAnimation() {
+    return (
+      <>
+        <Refresh className="align mr-2 animate-spin" />
+        <span>Loading...</span>
+      </>
+    );
+  }
+
   return (
     <>
       <div className="result-image-frame grid-col-1 grid gap-y-[20px] pb-[20px] sm:grid-cols-3 sm:gap-x-[34px] sm:gap-y-[31px]">
@@ -52,7 +62,7 @@ function ResultGrid({ initialImages }) {
           onClick={fetchMoreImages}
           disabled={loading}
         >
-          {loading ? 'Loading...' : 'MORE'}
+          {loading ? <LoadingAnimation /> : 'MORE'}
         </button>
       ) : (
         <button className="result-more mb-40" disabled>
