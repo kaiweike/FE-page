@@ -13,7 +13,11 @@ const SearchPage = ({ onSearch }) => {
 
   return (
     <div>
-      <SearchInput keyword={keyword} setKeyword={setKeyword} />
+      <SearchInput
+        keyword={keyword}
+        setKeyword={setKeyword}
+        onEnterPress={handleSearchClick}
+      />
       <hr className="placeholder1" />
       <div className="placeholder2" />
       <SliderGroup pageSize={pageSize} setPageSize={setPageSize} />

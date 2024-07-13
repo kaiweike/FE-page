@@ -62,7 +62,7 @@ function ResultGrid({ initialImages }) {
   function LoadingAnimation() {
     return (
       <>
-        <Refresh className="align mr-2 animate-spin" />
+        <Refresh className="mr-2 animate-spin" />
         <span>Loading...</span>
       </>
     );
