@@ -43,7 +43,7 @@ function ResultGrid({ initialImages }) {
 
     const nextPage = page + 1;
 
-    const url = `https://avl-frontend-exam.herokuapp.com/api/users/all?page=${nextPage}&pageSize=${pageSize}&keyword=${keyword}`;
+    const url = `${import.meta.env.VITE_API_ENDPOINT}/users/all?page=${nextPage}&pageSize=${pageSize}&keyword=${keyword}`;
 
     setLoading(true);
     try {

@@ -18,7 +18,7 @@ function Profile() {
       setLoading(true);
 
       try {
-        const baseUrl = 'https://avl-frontend-exam.herokuapp.com/api/users/';
+        const baseUrl = `${import.meta.env.VITE_API_ENDPOINT}/users/`;
         const userType = activeButton === 'followers' ? 'all' : 'friends';
         const pageSize = activeButton === 'followers' ? 100 : 43;
         const url = `${baseUrl}${userType}?page=1&pageSize=${pageSize}`;

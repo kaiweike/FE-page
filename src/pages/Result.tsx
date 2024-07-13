@@ -13,7 +13,7 @@ function Result() {
       const pageSize = query.get('pageSize');
       const keyword = query.get('keyword');
       const response = await fetch(
-        `https://avl-frontend-exam.herokuapp.com/api/users/all?page=1&pageSize=${pageSize}&keyword=${keyword}`
+        `${import.meta.env.VITE_API_ENDPOINT}/users/all?page=1&pageSize=${pageSize}&keyword=${keyword}`
       );
       const result = await response.json();
       setData(result);

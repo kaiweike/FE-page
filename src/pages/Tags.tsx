@@ -14,7 +14,7 @@ function Tags() {
       setLoading(true);
       try {
         const response = await fetch(
-          'https://avl-frontend-exam.herokuapp.com/api/tags'
+          `${import.meta.env.VITE_API_ENDPOINT}/tags`
         );
         const newTags = await response.json();
         setTags((prevTags) => [...prevTags, ...newTags]);
