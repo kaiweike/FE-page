@@ -1,35 +1,45 @@
 import '../styles/Profile.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Followers from './Followers';
 import Following from './Following';
 
 function Profile() {
   const [activeButton, setActiveButton] = useState('followers');
-  const [data, setData] = useState([]);
+  const [followersData, setFollowersData] = useState([]);
+  const [followingData, setFollowingData] = useState([]);
+  const [loadNewData, setLoadNewData] = useState(false);
+
+  const scrollRef = useRef(null); // ref for the scroll container
 
   useEffect(() => {
-    const fetchFollowers = async () => {
-      const response = await fetch(
-        'https://avl-frontend-exam.herokuapp.com/api/users/all?page=1&pageSize=100'
-      );
-      const data = await response.json();
-      setData(data);
-    };
+    async function fetchUsers() {
+      const baseUrl = 'https://avl-frontend-exam.herokuapp.com/api/users/';
+      const userType = activeButton === 'followers' ? 'all' : 'friends';
+      const pageSize = activeButton === 'followers' ? 100 : 43;
+      const url = `${baseUrl}${userType}?page=1&pageSize=${pageSize}`;
 
-    const fetchFollowing = async () => {
-      const response = await fetch(
-        'https://avl-frontend-exam.herokuapp.com/api/users/friends?page=1&pageSize=43'
-      );
-      const data = await response.json();
-      setData(data);
-    };
+      const response = await fetch(url);
+      const newData = await response.json();
 
-    if (activeButton === 'followers') {
-      fetchFollowers();
-    } else if (activeButton === 'following') {
-      fetchFollowing();
+      if (activeButton === 'followers') {
+        setFollowersData((prevData) => [...prevData, ...newData.data]);
+      } else {
+        setFollowingData((prevData) => [...prevData, ...newData.data]);
+      }
+
+      setLoadNewData(false);
     }
-  }, [activeButton]);
+
+    fetchUsers();
+  }, [activeButton, loadNewData]);
+
+  // Scroll event handler
+  function handleScroll() {
+    const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+      setLoadNewData(true);
+    }
+  }
 
   return (
     <>
@@ -47,9 +57,16 @@ function Profile() {
           Following
         </button>
       </div>
-      <div className="hide-scrollbar h-[92%] overflow-y-scroll overscroll-y-contain pt-6">
-        {activeButton === 'followers' && <Followers followers={data.data} />}
-        {activeButton === 'following' && <Following followers={data.data} />}
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="hide-scrollbar h-[92%] overflow-y-scroll overscroll-y-contain pt-6"
+      >
+        {activeButton === 'followers' ? (
+          <Followers followers={followersData} />
+        ) : (
+          <Following followers={followingData} />
+        )}
       </div>
     </>
   );

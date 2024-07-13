@@ -7,8 +7,11 @@ function Followers({ followers }) {
 
   return (
     <>
-      {followers.map((follower) => (
-        <div className="flex justify-between px-4 py-2" key={follower.id}>
+      {followers.map((follower, index) => (
+        <div
+          className="flex justify-between px-4 py-2"
+          key={follower.id + index}
+        >
           <div className="flex">
             <div className="avatar">
               <img
