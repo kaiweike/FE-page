@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 
 const CustomSlider = styled(Slider)(() => ({
-  margin: '0px 0px 16px', //default:20px => height:56px, set:16px => height:52px
+  margin: '0px 0px 16px', // default:20px => height:56px, set:16px => height:52px
   '& .MuiSlider-thumb': {
     height: 20,
     width: 20,

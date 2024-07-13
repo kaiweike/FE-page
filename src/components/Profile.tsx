@@ -32,7 +32,7 @@ function Profile() {
           setFollowingData((prevData) => [...prevData, ...newData.data]);
         }
       } catch (error) {
-        console.error('Error fetching tags:', error);
+        console.error('Error fetching followers/following:', error);
       } finally {
         setLoading(false);
         setLoadNewData(false);

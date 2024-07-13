@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar.tsx';
 import SearchPage from './SearchPage.tsx';
@@ -6,7 +5,6 @@ import Result from './Result.tsx';
 import Profile from '../components/Profile.tsx';
 
 function Home() {
-  const [resultData, setResultData] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
 
