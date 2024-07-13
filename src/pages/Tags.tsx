@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar.tsx';
 import TagsGrid from '../components/TagsGrid.tsx';
 import '../styles/Tags.css';
+import Refresh from '@mui/icons-material/Refresh';
 
 function Tags() {
   const [tags, setTags] = useState([]);
@@ -41,8 +42,8 @@ function Tags() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (tags.length === 0) {
-    return <div>Loading...</div>;
+  function LoadingAnimation() {
+    return <Refresh className="animate-spin" />;
   }
 
   return (
@@ -65,6 +66,9 @@ function Tags() {
             </div>
             <div className="tags-title">Tags</div>
             <TagsGrid tags={tags} />
+            <div className="m-4 text-center">
+              {loading && <LoadingAnimation />}
+            </div>
           </div>
         </div>
       </div>
