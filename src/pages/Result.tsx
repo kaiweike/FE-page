@@ -22,10 +22,6 @@ function Result() {
     fetchData();
   }, []);
 
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <div className="2xl:flex">
