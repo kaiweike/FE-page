@@ -1,15 +1,19 @@
 import { useState } from 'react';
-import SearchInput from '../components/SearchInput.tsx';
-import SliderGroup from '../components/SliderGroup.tsx';
+import SearchInput from './SearchInput.tsx';
+import SliderGroup from './SliderGroup.tsx';
 import '../styles/SearchPage.css';
 
-const SearchPage = ({ onSearch }) => {
-  const [keyword, setKeyword] = useState('');
-  const [pageSize, setPageSize] = useState(15);
+interface SearchPageProps {
+  onSearch: (keyword: string, pageSize: number) => Promise<void>;
+}
 
-  const handleSearchClick = () => {
+function SearchPage({ onSearch }: SearchPageProps) {
+  const [keyword, setKeyword] = useState<string>('');
+  const [pageSize, setPageSize] = useState<number>(15);
+
+  function handleSearchClick(): void {
     onSearch(keyword, pageSize);
-  };
+  }
 
   return (
     <div>
@@ -27,6 +31,6 @@ const SearchPage = ({ onSearch }) => {
       </button>
     </div>
   );
-};
+}
 
 export default SearchPage;

@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar.tsx';
-import SearchPage from './SearchPage.tsx';
+import SearchPage from '../components/SearchPage.tsx';
 import Result from './Result.tsx';
 import Profile from '../components/Profile.tsx';
 
@@ -8,9 +8,12 @@ function Home() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleSearch = async (keyword, pageSize) => {
+  async function handleSearch(
+    keyword: string,
+    pageSize: number
+  ): Promise<void> {
     navigate(`/result?&pageSize=${pageSize}&keyword=${keyword}`);
-  };
+  }
 
   return (
     <>

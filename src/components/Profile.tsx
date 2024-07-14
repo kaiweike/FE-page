@@ -3,15 +3,16 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Followers from './Followers';
 import Following from './Following';
 import Refresh from '@mui/icons-material/Refresh';
+import { FollowerData, UserData } from '../types';
 
 function Profile() {
-  const [activeButton, setActiveButton] = useState('followers');
-  const [followersData, setFollowersData] = useState([]);
-  const [followingData, setFollowingData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [activeButton, setActiveButton] = useState<string>('followers');
+  const [followersData, setFollowersData] = useState<UserData>([]);
+  const [followingData, setFollowingData] = useState<UserData>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const followersScrollRef = useRef(null); // ref for the followers scroll container
-  const followingScrollRef = useRef(null); // ref for the following scroll container
+  const followersScrollRef = useRef<HTMLDivElement>(null); // ref for the followers scroll container
+  const followingScrollRef = useRef<HTMLDivElement>(null); // ref for the following scroll container
 
   // fetch data function
   const fetchData = useCallback(async () => {
@@ -20,13 +21,13 @@ function Profile() {
     setLoading(true);
 
     try {
-      const baseUrl = `${import.meta.env.VITE_API_ENDPOINT}/users/`;
-      const userType = activeButton === 'followers' ? 'all' : 'friends';
-      const pageSize = activeButton === 'followers' ? 100 : 43;
-      const url = `${baseUrl}${userType}?page=1&pageSize=${pageSize}`;
+      const baseUrl: string = `${import.meta.env.VITE_API_ENDPOINT}/users/`;
+      const userType: string = activeButton === 'followers' ? 'all' : 'friends';
+      const pageSize: number = activeButton === 'followers' ? 100 : 43;
+      const url: string = `${baseUrl}${userType}?page=1&pageSize=${pageSize}`;
 
-      const response = await fetch(url);
-      const newData = await response.json();
+      const response: Response = await fetch(url);
+      const newData: FollowerData = await response.json();
 
       if (activeButton === 'followers') {
         setFollowersData((prevData) => [...prevData, ...newData.data]);
@@ -42,7 +43,7 @@ function Profile() {
 
   // fetch initial data
   useEffect(() => {
-    const resetScroll = () => {
+    function resetScroll(): void {
       if (activeButton === 'followers') {
         if (followersScrollRef.current) {
           followersScrollRef.current.scrollTop = 0;
@@ -52,20 +53,21 @@ function Profile() {
           followingScrollRef.current.scrollTop = 0;
         }
       }
-    };
+    }
 
-    const getData = async () => {
+    async function getData(): Promise<void> {
       setLoading(true);
       resetScroll();
 
       try {
-        const baseUrl = `${import.meta.env.VITE_API_ENDPOINT}/users/`;
-        const userType = activeButton === 'followers' ? 'all' : 'friends';
-        const pageSize = activeButton === 'followers' ? 100 : 43;
-        const url = `${baseUrl}${userType}?page=1&pageSize=${pageSize}`;
+        const baseUrl: string = `${import.meta.env.VITE_API_ENDPOINT}/users/`;
+        const userType: string =
+          activeButton === 'followers' ? 'all' : 'friends';
+        const pageSize: number = activeButton === 'followers' ? 100 : 43;
+        const url: string = `${baseUrl}${userType}?page=1&pageSize=${pageSize}`;
 
-        const response = await fetch(url);
-        const newData = await response.json();
+        const response: Response = await fetch(url);
+        const newData: FollowerData = await response.json();
 
         if (activeButton === 'followers') {
           setFollowersData([]);
@@ -79,15 +81,15 @@ function Profile() {
       } finally {
         setLoading(false);
       }
-    };
+    }
 
     getData();
   }, [activeButton]);
 
   // handle the scroll event and call the fetchData function when the user reaches the end of the page
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollContainer =
+    function handleScroll(): void {
+      const scrollContainer: HTMLDivElement | null =
         activeButton === 'followers'
           ? followersScrollRef.current
           : followingScrollRef.current;
@@ -97,9 +99,9 @@ function Profile() {
           fetchData();
         }
       }
-    };
+    }
 
-    const scrollContainer =
+    const scrollContainer: HTMLDivElement | null =
       activeButton === 'followers'
         ? followersScrollRef.current
         : followingScrollRef.current;

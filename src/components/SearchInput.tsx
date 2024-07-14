@@ -1,11 +1,21 @@
 import '../styles/SearchInput.css';
 
-const KeywordInput = ({ keyword, setKeyword, onEnterPress }) => {
-  const handleKeyPress = (event) => {
+interface KeywordInputProps {
+  keyword: string;
+  setKeyword: (value: string) => void;
+  onEnterPress: () => void;
+}
+
+function KeywordInput({
+  keyword,
+  setKeyword,
+  onEnterPress
+}: KeywordInputProps) {
+  function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>): void {
     if (event.key === 'Enter') {
       onEnterPress();
     }
-  };
+  }
 
   return (
     <>
@@ -22,6 +32,6 @@ const KeywordInput = ({ keyword, setKeyword, onEnterPress }) => {
       />
     </>
   );
-};
+}
 
 export default KeywordInput;

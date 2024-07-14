@@ -1,4 +1,10 @@
-function TagsGrid({ tags }) {
+import { TagsData } from '../types';
+
+interface TagsGridProps {
+  tags: TagsData;
+}
+
+function TagsGrid({ tags }: TagsGridProps) {
   function SkeletonLoader() {
     return (
       <>

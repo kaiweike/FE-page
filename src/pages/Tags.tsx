@@ -4,10 +4,11 @@ import NavBar from '../components/NavBar.tsx';
 import TagsGrid from '../components/TagsGrid.tsx';
 import '../styles/Tags.css';
 import Refresh from '@mui/icons-material/Refresh';
+import { TagsData } from '../types';
 
 function Tags() {
-  const [tags, setTags] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [tags, setTags] = useState<TagsData>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   // fetch data function
   const fetchData = useCallback(async () => {
@@ -16,8 +17,10 @@ function Tags() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/tags`);
-      const newTags = await response.json();
+      const response: Response = await fetch(
+        `${import.meta.env.VITE_API_ENDPOINT}/tags`
+      );
+      const newTags: TagsData = await response.json();
       setTags((prevTags) => [...prevTags, ...newTags]);
     } catch (error) {
       console.error('Error fetching tags:', error);
@@ -28,34 +31,34 @@ function Tags() {
 
   // fetch initial data
   useEffect(() => {
-    const getData = async () => {
+    async function getData(): Promise<void> {
       setLoading(true);
 
       try {
-        const response = await fetch(
+        const response: Response = await fetch(
           `${import.meta.env.VITE_API_ENDPOINT}/tags`
         );
-        const newTags = await response.json();
+        const newTags: TagsData = await response.json();
         setTags(newTags);
       } catch (error) {
         console.error('Error fetching tags:', error);
       } finally {
         setLoading(false);
       }
-    };
+    }
 
     getData();
   }, []);
 
   // handle the scroll event and call the fetchData function when the user reaches the end of the page
   useEffect(() => {
-    const handleScroll = () => {
+    function handleScroll(): void {
       const { scrollTop, clientHeight, scrollHeight } =
         document.documentElement;
       if (scrollTop + clientHeight >= scrollHeight - 20) {
         fetchData();
       }
-    };
+    }
 
     window.addEventListener('scroll', handleScroll);
     return () => {

@@ -1,6 +1,11 @@
 import '../styles/Follow.css';
+import { UserData } from '../types';
 
-function Followers({ followers }) {
+interface FollowersProps {
+  followers: UserData;
+}
+
+function Followers({ followers }: FollowersProps) {
   function SkeletonLoader() {
     return (
       <>

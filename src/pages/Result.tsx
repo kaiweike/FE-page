@@ -3,20 +3,24 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../styles/Result.css';
 import ResultGrid from '../components/ResultGrid';
+import { ResultData } from '../types';
 
 function Result() {
-  const [data, setData] = useState(null);
-  const query = new URLSearchParams(useLocation().search); // get URL's query string
-  const pageSize = query.get('pageSize');
-  const keyword = query.get('keyword');
+  const [data, setData] = useState<ResultData | null>(null);
+  const pageSize: string | null = new URLSearchParams(useLocation().search).get(
+    'pageSize'
+  );
+  const keyword: string | null = new URLSearchParams(useLocation().search).get(
+    'keyword'
+  );
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData(): Promise<void> {
       try {
-        const response = await fetch(
+        const response: Response = await fetch(
           `${import.meta.env.VITE_API_ENDPOINT}/users/all?page=1&pageSize=${pageSize}&keyword=${keyword}`
         );
-        const result = await response.json();
+        const result: ResultData = await response.json();
         setData(result);
       } catch (error) {
         console.error('Failed to fetch new images:', error);

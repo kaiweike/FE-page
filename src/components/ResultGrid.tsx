@@ -1,27 +1,37 @@
 import { useState } from 'react';
 import Refresh from '@mui/icons-material/Refresh';
+import { ResultData } from '../types';
+import { UserData } from '../UserData';
 
-function ResultGrid({ initialImages }) {
-  const [images, setImages] = useState(initialImages.data);
-  const [totalPages, setTotalPages] = useState(initialImages.totalPages);
-  const [page, setPage] = useState(initialImages.page);
-  const pageSize = initialImages.pageSize;
-  const [loading, setLoading] = useState(false);
-  const keyword = new URLSearchParams(window.location.search).get('keyword');
+interface ResultGridProps {
+  initialImages: ResultData;
+}
 
-  async function fetchMoreImages() {
+function ResultGrid({ initialImages }: ResultGridProps) {
+  const [images, setImages] = useState<UserData>(initialImages.data);
+  const [totalPages, setTotalPages] = useState<number>(
+    initialImages.totalPages
+  );
+  const [page, setPage] = useState<number>(initialImages.page);
+  const pageSize: number = initialImages.pageSize;
+  const [loading, setLoading] = useState<boolean>(false);
+  const keyword: string | null = new URLSearchParams(
+    window.location.search
+  ).get('keyword');
+
+  async function fetchMoreImages(): Promise<void> {
     if (page + 1 > totalPages) {
       return;
     }
 
-    const nextPage = page + 1;
+    const nextPage: number = page + 1;
 
-    const url = `${import.meta.env.VITE_API_ENDPOINT}/users/all?page=${nextPage}&pageSize=${pageSize}&keyword=${keyword}`;
+    const url: string = `${import.meta.env.VITE_API_ENDPOINT}/users/all?page=${nextPage}&pageSize=${pageSize}&keyword=${keyword}`;
 
     setLoading(true);
     try {
-      const response = await fetch(url);
-      const newImages = await response.json();
+      const response: Response = await fetch(url);
+      const newImages: ResultData = await response.json();
       setImages((prevImages) => [...prevImages, ...newImages.data]);
       setPage(nextPage);
       setTotalPages(newImages.totalPages);

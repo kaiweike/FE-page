@@ -51,7 +51,7 @@ const CustomSlider = styled(Slider)(() => ({
   }
 }));
 
-function valuetext(value: number) {
+function valuetext(value: number): string {
   if (value === 18) {
     return '50';
   }
@@ -67,19 +67,29 @@ const marks = [
   { value: 18, label: '50' }
 ];
 
-function DiscreteSliderValues({ setPageSize }) {
-  const [value, setValue] = useState(15); // default value
+interface DiscreteSliderValuesProps {
+  setPageSize: (size: number) => void;
+}
+
+function DiscreteSliderValues({ setPageSize }: DiscreteSliderValuesProps) {
+  const [value, setValue] = useState<number>(15); // default value
   const selectedMarkIndex = marks.findIndex((mark) => mark.value === value);
 
-  const handleChange = (_, newValue) => {
-    setValue(newValue); // slider value
+  function handleChange(
+    _: Event, // event
+    newValue: number | number[],
+    __: number // activeThumb
+  ): void {
+    if (typeof newValue === 'number') {
+      setValue(newValue); // slider value
 
-    // Convert slider value to expected value
-    if (newValue === 18) {
-      newValue = 50;
+      // Convert slider value to expected value
+      if (newValue === 18) {
+        newValue = 50;
+      }
+      setPageSize(newValue);
     }
-    setPageSize(newValue);
-  };
+  }
 
   return (
     <>
