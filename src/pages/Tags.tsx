@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar.tsx';
 import TagsGrid from '../components/TagsGrid.tsx';
@@ -9,38 +9,59 @@ function Tags() {
   const [tags, setTags] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // fetch data function
+  const fetchData = useCallback(async () => {
+    if (loading) return;
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/tags`);
+      const newTags = await response.json();
+      setTags((prevTags) => [...prevTags, ...newTags]);
+    } catch (error) {
+      console.error('Error fetching tags:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, [loading]);
+
+  // fetch initial data
   useEffect(() => {
-    async function fetchTags() {
+    const getData = async () => {
       setLoading(true);
+
       try {
         const response = await fetch(
           `${import.meta.env.VITE_API_ENDPOINT}/tags`
         );
         const newTags = await response.json();
-        setTags((prevTags) => [...prevTags, ...newTags]);
+        setTags(newTags);
       } catch (error) {
         console.error('Error fetching tags:', error);
       } finally {
         setLoading(false);
       }
-    }
+    };
 
-    fetchTags();
+    getData();
+  }, []);
 
-    function handleScroll() {
-      if (
-        window.innerHeight + document.documentElement.scrollTop !==
-          document.documentElement.offsetHeight ||
-        loading
-      )
-        return;
-      fetchTags();
-    }
+  // handle the scroll event and call the fetchData function when the user reaches the end of the page
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollTop, clientHeight, scrollHeight } =
+        document.documentElement;
+      if (scrollTop + clientHeight >= scrollHeight - 20) {
+        fetchData();
+      }
+    };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [fetchData]);
 
   function LoadingAnimation() {
     return <Refresh className="animate-spin" />;
