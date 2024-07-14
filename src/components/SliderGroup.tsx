@@ -1,7 +1,12 @@
 import SliderBar from '../components/SliderBar.tsx';
 import '../styles/SliderGroup.css';
 
-function SliderGroup({ pageSize, setPageSize }) {
+interface SliderGroupProps {
+  pageSize: number;
+  setPageSize: (value: number) => void;
+}
+
+function SliderGroup({ pageSize, setPageSize }: SliderGroupProps) {
   return (
     <>
       <div className="results-per-page"># of results per page</div>

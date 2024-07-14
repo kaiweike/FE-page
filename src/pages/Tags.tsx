@@ -1,23 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar.tsx';
 import TagsGrid from '../components/TagsGrid.tsx';
 import '../styles/Tags.css';
 import Refresh from '@mui/icons-material/Refresh';
+import { TagsData } from '../types';
 
 function Tags() {
-  const [tags, setTags] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [tags, setTags] = useState<TagsData>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
+  // fetch data function
+  const fetchData = useCallback(async () => {
+    if (loading) return;
+
+    setLoading(true);
+
+    try {
+      const response: Response = await fetch(
+        `${import.meta.env.VITE_API_ENDPOINT}/tags`
+      );
+      const newTags: TagsData = await response.json();
+      setTags((prevTags) => [...prevTags, ...newTags]);
+    } catch (error) {
+      console.error('Error fetching tags:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, [loading]);
+
+  // fetch initial data
   useEffect(() => {
-    async function fetchTags() {
+    async function getData(): Promise<void> {
       setLoading(true);
+
       try {
-        const response = await fetch(
-          'https://avl-frontend-exam.herokuapp.com/api/tags'
+        const response: Response = await fetch(
+          `${import.meta.env.VITE_API_ENDPOINT}/tags`
         );
-        const newTags = await response.json();
-        setTags((prevTags) => [...prevTags, ...newTags]);
+        const newTags: TagsData = await response.json();
+        setTags(newTags);
       } catch (error) {
         console.error('Error fetching tags:', error);
       } finally {
@@ -25,22 +47,24 @@ function Tags() {
       }
     }
 
-    fetchTags();
+    getData();
+  }, []);
 
-    function handleScroll() {
-      if (
-        window.innerHeight + document.documentElement.scrollTop !==
-          document.documentElement.offsetHeight ||
-        loading
-      )
-        return;
-      fetchTags();
+  // handle the scroll event and call the fetchData function when the user reaches the end of the page
+  useEffect(() => {
+    function handleScroll(): void {
+      const { scrollTop, clientHeight, scrollHeight } =
+        document.documentElement;
+      if (scrollTop + clientHeight >= scrollHeight - 20) {
+        fetchData();
+      }
     }
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [fetchData]);
 
   function LoadingAnimation() {
     return <Refresh className="animate-spin" />;

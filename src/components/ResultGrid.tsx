@@ -1,54 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Refresh from '@mui/icons-material/Refresh';
+import { ResultData } from '../types';
+import { UserData } from '../UserData';
 
-function ResultGrid({ initialImages }) {
-  if (!initialImages) {
-    return (
-      <>
-        <div className="result-image-frame grid-col-1 grid animate-pulse gap-y-[20px] pb-[20px] sm:grid-cols-3 sm:gap-x-[34px] sm:gap-y-[31px]">
-          <div>
-            <div className="result-image rounded-lg bg-slate-500" />
-            <div className="result-title">
-              <div className="h-2 w-32 rounded bg-slate-500" />
-            </div>
-            <div className="result-username">
-              <div className="h-2 w-24 rounded bg-slate-500" />
-            </div>
-          </div>
-          <div>
-            <div className="result-image rounded-lg bg-slate-600" />
-            <div className="result-title">
-              <div className="h-2 w-32 rounded bg-slate-600" />
-            </div>
-            <div className="result-username">
-              <div className="h-2 w-24 rounded bg-slate-600" />
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
+interface ResultGridProps {
+  initialImages: ResultData;
+}
 
-  const [images, setImages] = useState(initialImages.data);
-  const [totalPages, setTotalPages] = useState(initialImages.totalPages);
-  const [page, setPage] = useState(initialImages.page);
-  const pageSize = initialImages.pageSize;
-  const [loading, setLoading] = useState(false);
-  const keyword = new URLSearchParams(window.location.search).get('keyword');
+function ResultGrid({ initialImages }: ResultGridProps) {
+  const [images, setImages] = useState<UserData>(initialImages.data);
+  const [totalPages, setTotalPages] = useState<number>(
+    initialImages.totalPages
+  );
+  const [page, setPage] = useState<number>(initialImages.page);
+  const pageSize: number = initialImages.pageSize;
+  const [loading, setLoading] = useState<boolean>(false);
+  const keyword: string | null = new URLSearchParams(
+    window.location.search
+  ).get('keyword');
 
-  const fetchMoreImages = async () => {
+  async function fetchMoreImages(): Promise<void> {
     if (page + 1 > totalPages) {
       return;
     }
 
-    const nextPage = page + 1;
+    const nextPage: number = page + 1;
 
-    const url = `https://avl-frontend-exam.herokuapp.com/api/users/all?page=${nextPage}&pageSize=${pageSize}&keyword=${keyword}`;
+    const url: string = `${import.meta.env.VITE_API_ENDPOINT}/users/all?page=${nextPage}&pageSize=${pageSize}&keyword=${keyword}`;
 
     setLoading(true);
     try {
-      const response = await fetch(url);
-      const newImages = await response.json();
+      const response: Response = await fetch(url);
+      const newImages: ResultData = await response.json();
       setImages((prevImages) => [...prevImages, ...newImages.data]);
       setPage(nextPage);
       setTotalPages(newImages.totalPages);
@@ -57,12 +40,12 @@ function ResultGrid({ initialImages }) {
     } finally {
       setLoading(false);
     }
-  };
+  }
 
   function LoadingAnimation() {
     return (
       <>
-        <Refresh className="align mr-2 animate-spin" />
+        <Refresh className="mr-2 animate-spin" />
         <span>Loading...</span>
       </>
     );
