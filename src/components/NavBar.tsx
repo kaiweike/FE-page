@@ -7,7 +7,7 @@ function NavBar() {
 
   return (
     <>
-      <div className="nav-bar fixed bottom-0 left-0 right-0 z-10 flex items-center md:relative md:block md:justify-center">
+      <div className="nav-bar fixed bottom-0 left-0 right-0 z-10 flex items-center justify-center md:relative md:block">
         <div className="logo-style fixed left-0 right-0 top-0 z-10 flex items-center md:relative md:justify-center">
           LOGO
         </div>
