@@ -6,9 +6,6 @@ export default {
       screens: {
         '2xl': '1440px'
       },
-      fontFamily: {
-        ubuntu: ['Ubuntu']
-      },
       gridTemplateColumns: {
         'result-layout-md': '1fr',
         'home-layout-md': '80px 1fr',

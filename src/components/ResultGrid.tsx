@@ -56,7 +56,7 @@ function ResultGrid({ initialImages }: ResultGridProps) {
         {images.map((image, index) => (
           <div key={image.id}>
             <img
-              src={`src/assets/result${(index % 3) + 1}.png`}
+              src={`/api_example/result${(index % 3) + 1}.png`}
               alt="result"
               className="result-image"
             />

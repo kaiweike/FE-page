@@ -81,7 +81,7 @@ function Tags() {
             <div className="flex h-[70px] w-[375px] md:hidden">
               <Link to="/">
                 <img
-                  src="src/assets/arrow.svg"
+                  src="/icons/arrow.svg"
                   alt="Back Home"
                   className="tags-back-arrow"
                 />
