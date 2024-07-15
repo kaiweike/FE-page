@@ -45,7 +45,7 @@ function Following({ followers }: FollowingProps) {
               </div>
               <div className="fullname-username">
                 <div className="fullname">{follower.name}</div>
-                <div className="username">{follower.name}</div>
+                <div className="username">@{follower.name}</div>
               </div>
             </div>
             {follower.isFollowing ? (

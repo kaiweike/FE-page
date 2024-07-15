@@ -33,6 +33,7 @@
 
 .tags-frame {
   margin-left: 25px;
+  margin-right: 26px;
 }
 
 .tags-card {
@@ -100,5 +101,6 @@
   }
   .tags-frame {
     margin-left: 0px;
+    margin-right: 0px;
   }
 }

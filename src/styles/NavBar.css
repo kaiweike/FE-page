@@ -20,8 +20,8 @@
 }
 
 .nav-home-svg {
-  margin-left: 28px;
-  margin-right: 22px;
+  margin-left: 139px;
+  margin-right: 25px;
 }
 
 .nav-home {
@@ -38,8 +38,7 @@
 }
 
 .nav-tags-svg {
-  margin-top: 0px;
-  margin-left: 28px;
+  margin-left: 25px;
 }
 
 .nav-status-dot {
@@ -66,5 +65,11 @@
   .nav-home-svg {
     margin-top: 7px;
     margin-right: 0px;
+    margin-left: 28px;
+  }
+
+  .nav-tags-svg {
+    margin-right: 0px;
+    margin-left: 28px;
   }
 }

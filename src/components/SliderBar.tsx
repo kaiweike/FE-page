@@ -4,12 +4,12 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 
 const CustomSlider = styled(Slider)(() => ({
-  margin: '0px 0px 16px', // default:20px => height:56px, set:16px => height:52px
+  margin: '0px 0px 20px',
   '& .MuiSlider-thumb': {
-    height: 20,
-    width: 20,
+    height: 26,
+    width: 26,
     backgroundColor: '#1B1B1B',
-    border: '5px solid #FFD05D',
+    border: '6px solid #FFD05D',
     '&:hover, &.Mui-focusVisible': {
       boxShadow: 'none'
     },
@@ -39,7 +39,7 @@ const CustomSlider = styled(Slider)(() => ({
     }
   },
   '& .MuiSlider-markLabel': {
-    top: 28,
+    top: 30,
     fontFamily: 'Ubuntu',
     fontSize: '16px',
     fontWeight: 500,
@@ -52,7 +52,7 @@ const CustomSlider = styled(Slider)(() => ({
 }));
 
 function valuetext(value: number): string {
-  if (value === 18) {
+  if (value === 20) {
     return '50';
   }
   return `${value}`;
@@ -64,7 +64,7 @@ const marks = [
   { value: 9, label: '9' },
   { value: 12, label: '12' },
   { value: 15, label: '15' },
-  { value: 18, label: '50' }
+  { value: 20, label: '50' }
 ];
 
 interface DiscreteSliderValuesProps {
@@ -84,7 +84,7 @@ function DiscreteSliderValues({ setPageSize }: DiscreteSliderValuesProps) {
       setValue(newValue); // slider value
 
       // Convert slider value to expected value
-      if (newValue === 18) {
+      if (newValue === 20) {
         newValue = 50;
       }
       setPageSize(newValue);
@@ -108,7 +108,7 @@ function DiscreteSliderValues({ setPageSize }: DiscreteSliderValuesProps) {
           step={null}
           marks={marks}
           min={2.8}
-          max={18.2}
+          max={20.2}
           value={value}
           // valueLabelFormat={valuetext}
           // valueLabelDisplay="auto"
