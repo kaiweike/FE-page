@@ -88,7 +88,7 @@ function Result() {
         <div className="result-navbar flex">
           <Link to="/">
             <img
-              src="src/assets/arrow.svg"
+              src="/icons/arrow.svg"
               alt="Back Home"
               className="result-back-arrow"
             />

@@ -39,7 +39,7 @@ function Following({ followers }: FollowingProps) {
             <div className="flex">
               <div className="avatar">
                 <img
-                  src="src/assets/avatar2.png"
+                  src="/api_example/avatar2.png"
                   alt={`${follower.name}'s avatar`}
                 />
               </div>

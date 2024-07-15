@@ -10,12 +10,12 @@ function NavBar() {
         </div>
 
         <Link to="/" className="home-link">
-          <img src="src/assets/home.svg" alt="home" className="nav-home-svg" />
+          <img src="/icons/home.svg" alt="home" className="nav-home-svg" />
           <div className="nav-home hidden md:block">Home</div>
         </Link>
 
         <Link to="/tags" className="tags-link">
-          <img src="src/assets/tags.svg" alt="tags" className="nav-tags-svg" />
+          <img src="/icons/tags.svg" alt="tags" className="nav-tags-svg" />
           <div className="nav-status-dot hidden md:block"></div>
         </Link>
       </div>
