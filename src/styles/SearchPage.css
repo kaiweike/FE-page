@@ -12,11 +12,25 @@
 }
 
 .placeholder3 {
-  margin-top: 218px;
-  margin-bottom: 80px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   width: 335px;
   opacity: 10%;
   border: 1px solid #ffffff;
+}
+
+@media (min-height: 630px) {
+  .placeholder3 {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-height: 810px) {
+  .placeholder3 {
+    margin-top: 218px;
+    margin-bottom: 80px;
+  }
 }
 
 .search-button {

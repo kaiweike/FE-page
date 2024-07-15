@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/NavBar.css';
 
 function NavBar() {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <>
       <div className="nav-bar fixed bottom-0 left-0 right-0 z-10 flex items-center justify-center md:relative md:block">
@@ -15,8 +18,12 @@ function NavBar() {
         </Link>
 
         <Link to="/tags" className="tags-link">
-          <img src="/icons/tags.svg" alt="tags" className="nav-tags-svg" />
-          <div className="nav-status-dot hidden md:block"></div>
+          <div>
+            <img src="/icons/tags.svg" alt="tags" className="nav-tags-svg" />
+            {currentPath !== '/tags' && (
+              <div className="nav-status-dot hidden md:block"></div>
+            )}
+          </div>
         </Link>
       </div>
     </>
