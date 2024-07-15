@@ -1,10 +1,12 @@
 .placeholder1 {
   display: none;
-  margin-top: 30px;
+  margin-top: 29px;
   margin-bottom: 2px;
   width: 725px;
+  height: 1px;
   opacity: 10%;
-  border: 1px solid #ffffff;
+  border: none;
+  background-color: #ffffff;
 }
 
 .placeholder2 {
@@ -15,8 +17,10 @@
   margin-top: 40px;
   margin-bottom: 20px;
   width: 335px;
+  height: 1px;
   opacity: 10%;
-  border: 1px solid #ffffff;
+  border: none;
+  background-color: #ffffff;
 }
 
 @media (min-height: 630px) {

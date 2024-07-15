@@ -9,7 +9,7 @@ interface SliderGroupProps {
 function SliderGroup({ pageSize, setPageSize }: SliderGroupProps) {
   return (
     <>
-      <div className="results-per-page"># of results per page</div>
+      <div className="results-per-page"># Of Results Per Page</div>
       <div className="number-and-results flex">
         <div className="number">{pageSize}</div>
         <div className="results">results</div>

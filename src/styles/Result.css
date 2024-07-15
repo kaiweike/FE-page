@@ -37,7 +37,7 @@
 }
 
 .result-spaceholder {
-  width: 26px;
+  width: 44px;
 }
 
 .result-image-frame {
@@ -107,7 +107,7 @@
 
 @media (min-width: 1440px) {
   .result-navbar {
-    width: 26px;
+    width: 44px;
     height: 128px;
   }
 
@@ -118,7 +118,7 @@
 
   .result-results {
     margin-top: 92px;
-    margin-left: 25px;
+    margin-left: 7px;
     width: 102px;
     height: 45px;
     font-family: Ubuntu;

@@ -27,7 +27,7 @@ function SearchPage({ onSearch }: SearchPageProps) {
       <SliderGroup pageSize={pageSize} setPageSize={setPageSize} />
       <hr className="placeholder3" />
       <button className="search-button" onClick={handleSearchClick}>
-        Search
+        SEARCH
       </button>
     </div>
   );
