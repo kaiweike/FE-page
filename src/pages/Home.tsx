@@ -12,7 +12,9 @@ function Home() {
     keyword: string,
     pageSize: number
   ): Promise<void> {
-    navigate(`/result?&pageSize=${pageSize}&keyword=${keyword}`);
+    navigate(
+      `/result?&pageSize=${pageSize}&keyword=${encodeURIComponent(keyword)}`
+    );
   }
 
   return (

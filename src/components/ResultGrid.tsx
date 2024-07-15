@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Refresh from '@mui/icons-material/Refresh';
-import { ResultData } from '../types';
-import { UserData } from '../UserData';
+import { ResultData, UserData } from '../types';
 
 interface ResultGridProps {
   initialImages: ResultData;

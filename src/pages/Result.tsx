@@ -5,6 +5,28 @@ import '../styles/Result.css';
 import ResultGrid from '../components/ResultGrid';
 import { ResultData } from '../types';
 
+function isNumeric(value: any): boolean {
+  return /^\d+$/.test(value);
+}
+
+function getValidPageSize(pageSize: string | null): number {
+  if (!pageSize || !isNumeric(pageSize)) {
+    return 15; // default
+  }
+
+  const numericPageSize = Number(pageSize);
+
+  if (numericPageSize < 3) {
+    return 3;
+  }
+
+  if (numericPageSize > 50) {
+    return 50;
+  }
+
+  return numericPageSize;
+}
+
 function Result() {
   const [data, setData] = useState<ResultData | null>(null);
   const pageSize: string | null = new URLSearchParams(useLocation().search).get(
@@ -17,8 +39,11 @@ function Result() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
+        const validPageSize = getValidPageSize(pageSize);
+        const encodedKeyword = keyword ? encodeURIComponent(keyword) : '';
+
         const response: Response = await fetch(
-          `${import.meta.env.VITE_API_ENDPOINT}/users/all?page=1&pageSize=${pageSize}&keyword=${keyword}`
+          `${import.meta.env.VITE_API_ENDPOINT}/users/all?page=1&pageSize=${validPageSize}&keyword=${encodedKeyword}`
         );
         const result: ResultData = await response.json();
         setData(result);
