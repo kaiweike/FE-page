@@ -16,7 +16,9 @@ function Home() {
   const touchStartXRef = useRef<number | null>(null);
   const touchStartYRef = useRef<number | null>(null);
 
-  const handleMouseMove = (event: MouseEvent) => {
+  const handleMouseMove = (
+    event: MouseEvent | React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
     if (onDesktop) {
       setShowProfile(true);
     } else if (!onDesktop && event.clientX > window.innerWidth - 50) {
@@ -26,7 +28,9 @@ function Home() {
     }
   };
 
-  const handleTouchStart = (event: TouchEvent) => {
+  const handleTouchStart = (
+    event: TouchEvent | React.TouchEvent<HTMLDivElement>
+  ) => {
     const touch = event.touches[0];
     if (onDesktop) {
       setShowProfile(true);
@@ -38,7 +42,9 @@ function Home() {
     }
   };
 
-  const handleTouchMove = (event: TouchEvent) => {
+  const handleTouchMove = (
+    event: TouchEvent | React.TouchEvent<HTMLDivElement>
+  ) => {
     if (!onDesktop && showProfile) {
       const touch = event.touches[0];
       const touchStartX = touchStartXRef.current;
